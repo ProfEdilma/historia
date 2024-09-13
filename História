@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>História em Holograma</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #0ff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .hologram {
+            text-align: center;
+            animation: flicker 0.5s infinite alternate;
+        }
+        @keyframes flicker {
+            0% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+        .story {
+            max-width: 600px;
+            padding: 20px;
+            border: 2px solid #0ff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #0ff;
+        }
+        button {
+            background-color: #0ff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hologram">
+        <div class="story">
+            <h1>O Mundo de 2150</h1>
+            <p id="story-text">Em 2150, a Terra havia mudado drasticamente. Cidades flutuantes pairavam sobre oceanos elevados, e a humanidade havia finalmente alcançado as estrelas...</p>
+            <button onclick="nextPart()">Próxima Parte</button>
+        </div>
+    </div>
+
+    <script>
+        const storyParts = [
+            "Em 2150, a Terra havia mudado drasticamente. Cidades flutuantes pairavam sobre oceanos elevados, e a humanidade havia finalmente alcançado as estrelas...",
+            "A inteligência artificial e os humanos coexistiam em harmonia, trabalhando juntos para resolver os maiores desafios da galáxia.",
+            "Neste novo mundo, uma jovem chamada Aria descobriu um antigo artefato que poderia mudar o curso da história...",
+            "O artefato continha segredos de uma civilização há muito perdida, com tecnologia além da imaginação até mesmo para o ano de 2150.",
+            "Agora, Aria deve decidir: compartilhar sua descoberta com o mundo ou manter o segredo para proteger a humanidade de um poder potencialmente perigoso?"
+        ];
+
+        let currentPart = 0;
+
+        function nextPart() {
+            currentPart = (currentPart + 1) % storyParts.length;
+            document.getElementById('story-text').textContent = storyParts[currentPart];
+        }
+    </script>
+</body>
+</html>
